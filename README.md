@@ -28,3 +28,18 @@ $loop_results = true;
 Strapi::request($collection, $params, $loop_results);
 ```
 
+Update a collection item:
+
+```
+use kodeops\LaravelStrapi\Strapi;
+
+$collection = 'tgam-artist';
+$params = [
+    'data' => [
+        'title' => A title for the collection item',
+    ],
+];
+
+Strapi::update($collection, $params);
+```
+

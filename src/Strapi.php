@@ -83,4 +83,10 @@ class Strapi
                 ->log($cache_key);
         }
     }
+
+    public static function update(string $collection, int $id, array $params)
+    {
+        $url = env('STRAPI_URL') . "/api/{$collection}/{$id}";
+        return Http::withToken(env('STRAPI_TOKEN'))->put($url, $params);
+    }
 }
