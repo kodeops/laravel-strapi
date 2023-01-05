@@ -44,6 +44,8 @@ class Strapi
             ! $loop_results
             OR
             $response['meta']['pagination']['pageCount'] == $response['meta']['pagination']['page']
+            OR
+            ! $response['meta']['pagination']['pageCount']
         ) {
             self::storeCache($cache, $cache_key, $response);
             return $response;
