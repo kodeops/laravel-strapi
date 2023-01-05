@@ -89,4 +89,10 @@ class Strapi
         $url = env('STRAPI_URL') . "/api/{$collection}/{$id}";
         return Http::withToken(env('STRAPI_TOKEN'))->put($url, $params);
     }
+
+    public static function create(string $collection, array $params)
+    {
+        $url = env('STRAPI_URL') . "/api/{$collection}";
+        return Http::withToken(env('STRAPI_TOKEN'))->post($url, $params);
+    }
 }

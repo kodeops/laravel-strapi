@@ -43,3 +43,20 @@ $params = [
 Strapi::update($collection, $params);
 ```
 
+Create a collection item:
+
+```
+use kodeops\LaravelStrapi\Strapi;
+
+$collection = 'tgam-artists';
+$params = [
+    'data' => [
+        'title' => A title for the collection item',
+        'description' => A description for the collection item',
+        'url' => A url for the collection item',
+    ],
+];
+
+Strapi::create($collection, $params);
+```
+
