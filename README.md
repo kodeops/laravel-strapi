@@ -14,7 +14,7 @@ This package is a wrapper to make REST API calls to [Strapi](https://docs.strapi
 
 The REST API allows accessing the content-types through API endpoints. Strapi automatically creates API endpoints when a content-type is created. API parameters can be used when querying API endpoints to refine the results.
 
-[REST API Documentation](https://docs.strapi.io/developer-docs/latest/developer-resources/database-apis-reference/rest-api.html)
+[REST API Documentation](https://docs-v4.strapi.io/dev-docs/intro)
 
 ```
 use kodeops\LaravelStrapi\Strapi;
