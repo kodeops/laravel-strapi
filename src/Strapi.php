@@ -24,11 +24,14 @@ class Strapi
         if (! isset($params['pagination[pageSize]'])) {
             $params['pagination[pageSize]'] = 100;
         }
-
-        $url = env('STRAPI_URL') . "/api/{$collection}?" . http_build_query($params);
-        $cache_key = "strapi." . sha1($url);
-        $response = Http::withToken(env('STRAPI_TOKEN'))->get($url);
+        
+        $url = env('STRAPI_URL') . "/api/{$collection}";
+        $cache_key = "strapi." . sha1($url) . http_build_query($params);
+        $response = Http::withToken(env('STRAPI_TOKEN'))->get($url, $params);
         $cache = Activity::where('description', $cache_key)->orderBy('created_at', 'DESC')->first();
+        if (isset($params['pagination[pageSize]'])) {
+            $loop_results = false;    
+        }
 
         if ($response->failed()) {
             // If response failed try to use cached
